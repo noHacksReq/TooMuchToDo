@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
+import { useTodoStore } from '/stores/todoStore.ts'
+
+
+const store = useTodoStore();
+console.log(store.test)
 
 </script>
 
 <template>
-  <h1>This is the main body component</h1>
+  <h1>This is the main body component{{ store.test }}</h1>
 </template>
 
 <style scoped>
