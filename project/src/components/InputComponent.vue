@@ -5,12 +5,17 @@ import { useTodoStore } from '/stores/todoStore.ts'
 
 
 const store = useTodoStore();
-let todoItem: String = ref('');
+let todoId = ref(0)
+let todoItem = ref('');
+let todoObj = ref({});
 
 function addToStore() {
-    console.log(todoItem.value)
-    store.todoObj.title = todoItem.value;
-    store.todoArr.push(store.todoObj)
+    todoObj = new Object;
+    todoObj.itemId = todoId.value;
+    ++todoId.value;
+    todoObj.title = todoItem.value;
+    store.todoArr.push(todoObj);
+    
     todoItem.value = ''
 }
 
