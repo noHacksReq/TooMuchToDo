@@ -3,6 +3,7 @@ import {  } from 'vue'
 //import InputComponent from './InputComponent.vue';
 import { useTodoStore } from '/stores/todoStore.ts'
 import InputComponent from './InputComponent.vue';
+import ListComponent from './ListComponent.vue';
 
 
 const store = useTodoStore();
@@ -11,8 +12,9 @@ console.log(store.test)
 </script>
 
 <template>
+  <h1>This is the todo list</h1>
   <InputComponent />
-  <h1>This is the main body component{{ store.test }}</h1>
+  <ListComponent />
 </template>
 
 <style scoped>

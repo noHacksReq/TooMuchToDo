@@ -27,7 +27,7 @@ function addToStore() {
     <input v-model="todoItem" type="text">
     <input @click="addToStore" type="button" value="Add Todo">
   </form>
-  <h1>{{ todoItem }}</h1>
+  
 </template>
 
 <style scoped>
