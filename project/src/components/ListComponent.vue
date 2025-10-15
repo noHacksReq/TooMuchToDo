@@ -5,11 +5,7 @@ import { useTodoStore } from '/stores/todoStore.ts'
 
 const store = useTodoStore();
 
-function deleteItem(i) {
-    
-    store.todoArr.splice(i, 1);
-    
-}
+const deleteItem = (i) => store.todoArr.splice(i, 1);
 
 
 
