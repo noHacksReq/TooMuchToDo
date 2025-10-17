@@ -14,7 +14,9 @@ const deleteItem = (i) => store.todoArr.splice(i, 1);
 <template>
   <section>
     <ul class="tdList">
-        <li v-for="(item, index) in store.todoArr">{{ item.title }}
+        <li v-for="(item, index) in store.todoArr">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
             <button @click="deleteItem(index)">Delete Item</button>
         </li>
     </ul>

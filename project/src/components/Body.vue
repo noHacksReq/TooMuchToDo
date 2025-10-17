@@ -7,7 +7,7 @@ import ListComponent from './ListComponent.vue';
 
 
 const store = useTodoStore();
-console.log(store.test)
+
 
 </script>
 
