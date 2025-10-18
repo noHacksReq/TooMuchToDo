@@ -17,6 +17,9 @@ function addToStore() {
     todoObj.title = todoItem.value;
     todoObj.description = todoDesc.value;
     store.todoArr.push(todoObj);
+    // setting arr
+    localStorage.setItem("tempSavedArr", JSON.stringify(store.todoArr));
+    store.savedArr = localStorage.getItem("tempSavedArr"); 
     todoDesc.value = '';
     todoItem.value = '';
 }
