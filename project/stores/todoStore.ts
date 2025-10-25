@@ -10,6 +10,6 @@ export const useTodoStore = defineStore('todos', () => {
         
     }
     
-    return { todoArr, savedArr }
+    return { todoArr }
 }
 )
