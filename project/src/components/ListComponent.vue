@@ -19,7 +19,8 @@ const deleteItem = (i) => {
   <section>
     
     <ul class="tdList">
-        <li v-for="(item, index) in store.todoArr">
+        <li
+        class="tdItem" v-for="(item, index) in store.todoArr">
             <h3>{{ item.title }}</h3>
             <p>{{ item.description }}</p>
             <button @click="deleteItem(index)">Delete Item</button>
@@ -33,7 +34,18 @@ const deleteItem = (i) => {
 </template>
 
 <style scoped>
+* {
+  outline: 1px solid red;
+} 
 .tdList {
+  
     list-style: none;
+}
+
+.tdItem {
+  height: 42vh;
+  width: 25vw;
+  background-color: #ababab;
+  color: #2d2d2d;
 }
 </style>
