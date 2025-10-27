@@ -25,6 +25,9 @@ const deleteItem = (i) => {
             <button @click="deleteItem(index)">Delete Item</button>
         </li>
     </ul>
+    <div v-show="store.todoArr.length">
+      <button @click="store.testAction()">Clear list</button>
+    </div>
   </section>
  
 </template>
