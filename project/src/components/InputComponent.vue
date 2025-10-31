@@ -47,17 +47,26 @@ h1 {
 .todoForm {
   display: flex;
   flex-direction: column;
+  max-width: 30vw;
+}
+
+::placeholder {
+  color: var(--dark-purple);
 }
 
 .textInput {
   margin: 5px 0;
   border-radius: 5px;
+  background-color: var(--pink);
+  color: var(--dark-purple);
 }
 
 .textBox {
   height: 200px;
    margin: 5px 0;
    border-radius: 5px;
+   background-color: var(--pink);
+   color: var(--dark-purple);
 }
 
 .addIcon {
