@@ -19,21 +19,38 @@ const deleteItem = (i) => {
   <section>
     
     <ul class="tdList">
-        <li v-for="(item, index) in store.todoArr">
+        <li
+        class="tdItem" v-for="(item, index) in store.todoArr">
             <h3>{{ item.title }}</h3>
             <p>{{ item.description }}</p>
-            <button @click="deleteItem(index)">Delete Item</button>
+            <button class="btn" @click="deleteItem(index)">Delete Item</button>
         </li>
     </ul>
     <div v-show="store.todoArr.length">
-      <button @click="store.testAction()">Clear list</button>
+      <button class="btn" @click="store.testAction()">Clear list</button>
     </div>
   </section>
  
 </template>
 
 <style scoped>
+* {
+  outline: 1px solid red;
+} 
 .tdList {
-    list-style: none;
+  list-style: none;
+  display: flex;
+}
+
+.tdItem {
+  height: 42vh;
+  width: 25vw;
+  background-color: var(--light-purple);
+  color: var(--dark-purple);
+}
+
+.btn {
+  background-color: var(--teal);
+  color: var(--dark-purple);
 }
 </style>

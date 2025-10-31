@@ -12,11 +12,15 @@ const store = useTodoStore();
 </script>
 
 <template>
-  <h1>This is the todo list</h1>
+  <h1 class="title">This is the todo list</h1>
   <InputComponent />
   <ListComponent />
 </template>
 
 <style scoped>
+
+.title {
+  color: var(--teal);
+}
 
 </style>
