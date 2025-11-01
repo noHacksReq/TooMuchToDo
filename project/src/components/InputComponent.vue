@@ -45,6 +45,7 @@ h1 {
 }
 
 .todoForm {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   max-width: 30vw;
