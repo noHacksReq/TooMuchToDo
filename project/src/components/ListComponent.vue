@@ -33,6 +33,7 @@ const deleteItem = (i) => {
       <button
       @click="store.clearList()"
       class="confirm">This will delete all items</button>
+      <button @click="store.goBack()">Go back</button>
     </div>
     
   </section>

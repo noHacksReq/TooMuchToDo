@@ -16,27 +16,21 @@ export const useTodoStore = defineStore('todos', () => {
     }
        
     function clearList() {
-
-            if(clearModal.value === true) {
-                todoArr = localStorage.clear();
-                canConfirm = true;
-            }
-                
-           
-            
-        if (canConfirm === true) {
-            
-            todoArr = [];
-        todoArr = localStorage.clear();
-        canConfirm = !canConfirm;
-        debugger
+        if(clearModal.value === true) {
+            todoArr.value = localStorage.clear();
+            todoArr.value = [];
+            clearModal.value = false;
         }
-        
-        
+    }
+
+    function goBack() {
+        clearModal.value = false;
     }
     
 
-    return { todoArr, clearList, canConfirm, clearModal, confirmClear  }
+    return { todoArr, clearList, 
+        canConfirm, clearModal, 
+        confirmClear, goBack  }
 }
     
 )
