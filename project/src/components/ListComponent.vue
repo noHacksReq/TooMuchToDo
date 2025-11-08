@@ -6,7 +6,6 @@ import { useTodoStore } from '/stores/todoStore.ts'
 const store = useTodoStore();
 
 const deleteItem = (i) => {
-  
   // remove item from todoArr and re-set local storage
   store.todoArr.splice(i, 1);
   localStorage.setItem("tempSavedArr", JSON.stringify(store.todoArr));
@@ -28,21 +27,16 @@ const deleteItem = (i) => {
         </li>
     </ul>
     <div v-show="store.todoArr.length">
-      <button class="btn" @click="store.confirmClear()">Clear list</button>
+      <button class="btn" @click="store.testAction()">Clear list</button>
     </div>
-    <div v-show="store.clearModal" class="confirmModal">
-      <button
-      @click="store.clearList()"
-      class="confirm">This will delete all items</button>
-      <button @click="store.goBack()">Go back</button>
-    </div>
-    
   </section>
  
 </template>
 
 <style scoped>
-
+* {
+  
+} 
 .tdList {
   list-style: none;
   display: flex;
@@ -66,26 +60,8 @@ const deleteItem = (i) => {
   border-radius: 5px;
 }
 
-.confirm {
-  z-index: 20;
-  opacity: 1;
-}
-
 .btn {
   background-color: var(--teal);
   color: var(--dark-purple);
-}
-
-.confirmModal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  overflow: hidden;
-  background-color: red;
-  opacity: 0.5;
-  
-  z-index: 10;
 }
 </style>

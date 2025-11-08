@@ -10,6 +10,7 @@ export const useTodoStore = defineStore('todos', () => {
     };
 
        
+confirmClear
 
     function clearList() {
         
@@ -28,6 +29,7 @@ export const useTodoStore = defineStore('todos', () => {
     
 
     return { todoArr, testAction, goBack }
+
 }
     
 )
