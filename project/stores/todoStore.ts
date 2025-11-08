@@ -10,13 +10,26 @@ export const useTodoStore = defineStore('todos', () => {
     };
 
        
-    function testAction() {
-        todoArr.value = [];
-        todoArr = localStorage.clear();
+confirmClear
+
+    function clearList() {
+        
+        if(clearModal.value === true) {
+            todoArr.value = localStorage.clear();
+            todoArr.value = [];
+            debugger
+            clearModal.value = false;
+        }
+    }
+
+    function goBack() {
+        clearModal.value = false;
+
     }
     
 
-    return { todoArr, testAction }
+    return { todoArr, testAction, goBack }
+
 }
     
 )
