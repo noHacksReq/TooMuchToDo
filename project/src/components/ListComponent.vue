@@ -11,8 +11,6 @@ const deleteItem = (i) => {
   localStorage.setItem("tempSavedArr", JSON.stringify(store.todoArr));
 } 
 
-
-
 </script>
 
 <template>
@@ -27,16 +25,30 @@ const deleteItem = (i) => {
         </li>
     </ul>
     <div v-show="store.todoArr.length">
-      <button class="btn" @click="store.testAction()">Clear list</button>
+      <button class="btn" @click="store.confirmClear()">Clear list</button>
+    </div>
+    <div v-show="store.clearModal" class="clearModal">
+      <button @click="store.clearList()">clear</button>
+      <button @click="store.goBack()">Go back</button>
     </div>
   </section>
  
 </template>
 
 <style scoped>
-* {
+
+
+.clearModal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   
-} 
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
 .tdList {
   list-style: none;
   display: flex;
