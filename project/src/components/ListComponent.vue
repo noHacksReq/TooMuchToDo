@@ -28,8 +28,15 @@ const deleteItem = (i) => {
       <button class="btn" @click="store.confirmClear()">Clear list</button>
     </div>
     <div v-show="store.clearModal" class="clearModal">
-      <button @click="store.clearList()">clear</button>
-      <button @click="store.goBack()">Go back</button>
+      <div class="confirmBox">
+        <div class="modalCont">
+          <h1>Are you sure you want to clear the list?</h1>
+        <button class="modalBtn" @click="store.clearList()">clear</button>
+        <button class="modalBtn" @click="store.goBack()">Go back</button>
+        </div>
+        
+      </div>
+      
     </div>
   </section>
  
@@ -39,7 +46,9 @@ const deleteItem = (i) => {
 
 
 .clearModal {
-  position: absolute;
+  display: flex;
+  align-items: center;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
@@ -47,6 +56,40 @@ const deleteItem = (i) => {
   
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 3;
+}
+
+.confirmBox {
+  
+  align-content: center;;
+  margin: 0 auto;
+  height: 80vh;
+  width: 80vw;
+  background-color: var(--light-purple);
+  border-radius: 10px;
+  border: 3px solid var(--teal);
+  color: var(--dark-purple);
+}
+
+.modalCont {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.modalBtn {
+  background-color: var(--dark-purple);
+  margin: 0 10px;
+  padding: 50px 0;
+  width: 250px;
+  color: var(--teal);
+  border: 0;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.modalBtn:hover {
+  background-color: var(--teal);
+  color: var(--dark-purple);
+  border: none;
 }
 
 .tdList {
