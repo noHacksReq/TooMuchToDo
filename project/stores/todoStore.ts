@@ -16,7 +16,6 @@ export const useTodoStore = defineStore('todos', () => {
        
 
     function clearList() {
-        debugger
         console.log('props are working')
         if(clearModal.value === true) {
             todoArr.value = localStorage.clear();
