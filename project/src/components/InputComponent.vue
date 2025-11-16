@@ -33,8 +33,8 @@ todoDesc.value = '';
     <textarea class="textBox" v-model="todoDesc" type="textarea" placeholder="add details"></textarea>
     <span class="material-symbols-outlined addIcon" @click="addToStore"
     title="add todo item">
-add
-</span>
+      add
+    </span>
   </form>
   
 </template>

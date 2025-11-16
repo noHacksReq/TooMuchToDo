@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useTodoStore } from '/stores/todoStore.ts'
-import DeleteModal from './DeleteModal.vue';
+
 
 const store = useTodoStore();
-//const props = definePorps(['deleteMsg'])
+defineProps(['title'])
 
 const deleteItem = (i) => {
   // remove item from todoArr and re-set local storage
@@ -15,25 +15,15 @@ const deleteItem = (i) => {
 </script>
 
 <template>
-  <section>
-    
-    <ul class="tdList">
-        <li
-        class="tdItem" v-for="(item, index) in store.todoArr">
-            <h3 class="tdItemTitle">{{ item.title }}</h3>
-            <p>{{ item.description }}</p>
-            <button class="btn" @click="deleteItem(index)">Delete Item</button>
-        </li>
-    </ul>
-    <div v-show="store.todoArr.length">
-      <button class="btn" @click="store.confirmClear()">Clear list</button>
-    </div>
-    <div v-show="store.clearModal" class="clearModal">
-      <DeleteModal deleteMsg="list" />
-    </div>
-      
-    
-  </section>
+  
+      <div class="confirmBox">
+        <div class="modalCont">
+          <h1>Are you sure you want to clear the list?</h1>
+        <button class="modalBtn" @click="store.clearList()">clear</button>
+        <button class="modalBtn" @click="store.goBack()">Go back</button>
+        </div>
+        
+      </div>
  
 </template>
 
