@@ -16,6 +16,7 @@ function addToStore() {
     ++todoId.value;
     todoObj.title = todoItem.value;
     todoObj.description = todoDesc.value;
+    todoObj.delete = false;
     store.todoArr.push(todoObj);
     // setting arr
     localStorage.setItem("tempSavedArr", JSON.stringify(store.todoArr));

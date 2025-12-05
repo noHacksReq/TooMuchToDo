@@ -4,7 +4,11 @@ import { useTodoStore } from '/stores/todoStore.ts'
 
 
 const store = useTodoStore();
-defineProps(['title'])
+const props = defineProps<{
+  deleteMsg: string
+  deleteFunc: () => void
+  goBackFunc: () => void
+}>()
 
 const deleteItem = (i) => {
 
@@ -18,9 +22,9 @@ const deleteItem = (i) => {
   
       <div class="confirmBox">
         <div class="modalCont">
-          <h1>Are you sure you want to clear the list?</h1>
-        <button class="modalBtn" @click="store.clearList()">clear</button>
-        <button class="modalBtn" @click="store.goBack()">Go back</button>
+          <h1>Are you sure you want to clear the {{ deleteMsg }}?</h1>
+        <button class="modalBtn" @click="deleteFunc()">clear</button>
+        <button class="modalBtn" @click="goBackFunc()">Go back</button>
         </div>
         
       </div>
