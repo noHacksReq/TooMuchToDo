@@ -7,9 +7,15 @@ const store = useTodoStore();
 //const props = definePorps(['deleteMsg'])
 
 const deleteItem = (i) => {
-  // remove item from todoArr and re-set local storage
-  store.todoArr.splice(i, 1);
+  
+  //store.todoArr.splice(i, 1);
+ store.todoArr = store.todoArr.filter((item) => item.delete === false)
+  debugger
   localStorage.setItem("tempSavedArr", JSON.stringify(store.todoArr));
+  // remove item from todoArr and re-set local stora
+    
+ store.clearItem = false;
+  
 } 
 
 </script>
@@ -22,17 +28,29 @@ const deleteItem = (i) => {
         class="tdItem" v-for="(item, index) in store.todoArr">
             <h3 class="tdItemTitle">{{ item.title }}</h3>
             <p>{{ item.description }}</p>
-            <button class="btn" @click="deleteItem(index)">Delete Item</button>
+            <button class="btn" @click="store.confirmDelete(index)">Delete Item</button>
+            
+            <DeleteModal 
+            v-show="store.clearItem"
+            class="clearModal"
+            deleteMsg="list item" 
+            :deleteFunc= "() => deleteItem(index)"
+            :goBackFunc="store.confirmItemGoBack"
+            />
         </li>
     </ul>
     <div v-show="store.todoArr.length">
       <button class="btn" @click="store.confirmClear()">Clear list</button>
     </div>
-    <div v-show="store.clearModal" class="clearModal">
-      <DeleteModal deleteMsg="list" />
-    </div>
-      
     
+      <DeleteModal 
+      v-show="store.clearModal"
+      class="clearModal"
+      deleteMsg="whole list" 
+      :deleteFunc="store.clearList"
+      :goBackFunc="store.goBack"
+
+      />
   </section>
  
 </template>

@@ -4,10 +4,22 @@ import { ref, computed, reactive } from 'vue';
 export const useTodoStore = defineStore('todos', () => {
     let todoArr: Array = ref([]);
     let clearModal = ref(false);
+    let clearItem = ref(false);
     // check local storage and set todoArr with its value
     if(localStorage.getItem("tempSavedArr")) {
         todoArr.value = JSON.parse(localStorage.getItem("tempSavedArr"))
     };
+
+    function confirmDelete(i) {
+        
+        
+        clearItem.value = true;
+        todoArr.value[i].delete = true;
+    }
+
+    function confirmItemGoBack() {
+        clearItem.value = false;
+    }
 
     function confirmClear() {
         
@@ -31,7 +43,9 @@ export const useTodoStore = defineStore('todos', () => {
     }
     
 
-    return { todoArr, confirmClear, clearList, goBack, clearModal }
+    return { todoArr, confirmClear, clearList, 
+        goBack, clearModal, confirmDelete, 
+        clearItem, confirmItemGoBack }
 
 }
     
