@@ -10,7 +10,7 @@ const deleteItem = (i) => {
   
   //store.todoArr.splice(i, 1);
  store.todoArr = store.todoArr.filter((item) => item.delete === false)
-  debugger
+  
   localStorage.setItem("tempSavedArr", JSON.stringify(store.todoArr));
   // remove item from todoArr and re-set local stora
     
