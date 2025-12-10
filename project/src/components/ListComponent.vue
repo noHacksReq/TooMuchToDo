@@ -42,7 +42,7 @@ const deleteItem = (i) => {
     <div v-show="store.todoArr.length">
       <button class="btn" @click="store.confirmClear()">Clear list</button>
     </div>
-    <div  v-if="store.clearModal"  class="clearModal">
+    <div  v-if="store.clearModal"  class="clearModal" .al>
       <DeleteModal 
       class="clearModal"
       deleteMsg="whole list" 
@@ -62,7 +62,7 @@ const deleteItem = (i) => {
   display: flex;
   height: 100vh;
   
-  align-items: center;
+ 
   position: fixed;
   top: 0;
   right: 0;
@@ -76,7 +76,7 @@ const deleteItem = (i) => {
 .confirmBox {
   
   align-content: center;;
-  margin: 0 auto;
+  margin: 40px auto;
   height: 80vh;
   width: 80vw;
   background-color: var(--light-purple);
