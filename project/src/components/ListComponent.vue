@@ -29,28 +29,28 @@ const deleteItem = (i) => {
             <h3 class="tdItemTitle">{{ item.title }}</h3>
             <p>{{ item.description }}</p>
             <button class="btn" @click="store.confirmDelete(index)">Delete Item</button>
+            <div  v-if="store.clearItem" class="clearModal">
+              <DeleteModal 
+              deleteMsg="list item" 
+              :deleteFunc= "() => deleteItem(index)"
+              :goBackFunc="store.confirmItemGoBack"
+              />
+            </div>
             
-            <DeleteModal 
-            v-show="store.clearItem"
-            class="clearModal"
-            deleteMsg="list item" 
-            :deleteFunc= "() => deleteItem(index)"
-            :goBackFunc="store.confirmItemGoBack"
-            />
         </li>
     </ul>
     <div v-show="store.todoArr.length">
       <button class="btn" @click="store.confirmClear()">Clear list</button>
     </div>
-    
+    <div  v-if="store.clearModal"  class="clearModal">
       <DeleteModal 
-      v-show="store.clearModal"
       class="clearModal"
       deleteMsg="whole list" 
       :deleteFunc="store.clearList"
       :goBackFunc="store.goBack"
-
       />
+    </div>
+      
   </section>
  
 </template>
@@ -60,6 +60,8 @@ const deleteItem = (i) => {
 
 .clearModal {
   display: flex;
+  height: 100vh;
+  
   align-items: center;
   position: fixed;
   top: 0;
@@ -68,7 +70,7 @@ const deleteItem = (i) => {
   bottom: 0;
   
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 3;
+  z-index: 3;  
 }
 
 .confirmBox {
